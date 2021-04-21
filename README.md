@@ -2,7 +2,8 @@
 ====================================
 
     git clone https://github.com/zhouerqin/vimrc.git ~/.vim
-    git submodule update --init 
+    git submodule init 
+    git submodule update
     cp ~/.vim/vimrcs/simple.vim ~/.vimrc 
     cp ~/.vim/vimrcs/editorconfig.vim ~/.editorconfig
 
