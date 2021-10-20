@@ -33,6 +33,6 @@ nmap ga <Plug>(EasyAlign)
 " Activate FOCUS mode with F12
 nmap <F12> :Goyo<CR>
 
-colorscheme nord
+colorscheme Tomorrow-Night-Eighties
 
 

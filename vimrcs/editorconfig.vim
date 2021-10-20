@@ -26,7 +26,7 @@ insert_final_newline = true
 trim_trailing_whitespace = true
 max_line_length = 120
 
-[*.yml]
+[*.{yml,yaml}]
 indent_style = space
 indent_size = 2
 
