@@ -11,3 +11,9 @@
 ------------------------------------
 
     :TmuxlineSnapshot ~/.tmux.conf
+
+添加插件
+    ```bash
+    cd bundle
+    git submodule add https://github.com/chriskempson/base16-vim.git
+    ```
