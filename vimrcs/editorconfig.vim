@@ -3,6 +3,13 @@ root = true
 [*]
 end_of_line = lf
 charset = utf-8
+max_line_length = 120
+
+[*.{sh}]
+indent_style = space
+indent_size = 2
+insert_final_newline = true
+trim_trailing_whitespace = true
 max_line_length = 80
 
 [*.md]
@@ -12,7 +19,7 @@ insert_final_newline = true
 trim_trailing_whitespace = false
 max_line_length = 180
 
-[*.{vim,sh,py,php}]
+[*.{vim,py,php}]
 indent_style = space
 indent_size = 4
 insert_final_newline = true
