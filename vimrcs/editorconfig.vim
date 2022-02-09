@@ -1,6 +1,7 @@
 root = true
 
 [*]
+<<<<<<< HEAD
 end_of_line     = lf
 charset         = utf-8
 max_line_length = off

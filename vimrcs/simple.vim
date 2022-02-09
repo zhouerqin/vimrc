@@ -18,9 +18,9 @@ let g:airline_powerline_fonts=1
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 " Color name (:help cterm-colors) or ANSI code
-let g:limelight_conceal_ctermfg = 'nord'
-let g:limelight_conceal_ctermfg = 240
-let g:goyo_width = 120
+"let g:limelight_conceal_ctermfg = 'nord'
+"let g:limelight_conceal_ctermfg = 240
+"let g:goyo_width = 120
 
 
 " 快捷键设置
@@ -33,6 +33,6 @@ nmap ga <Plug>(EasyAlign)
 " Activate FOCUS mode with F12
 nmap <F12> :Goyo<CR>
 
-colorscheme Tomorrow-Night-Eighties
+colorscheme base16-3024
 
 
