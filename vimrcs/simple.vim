@@ -26,6 +26,8 @@ autocmd! User GoyoLeave Limelight!
 "let g:limelight_conceal_ctermfg = 240
 "let g:goyo_width = 120
 
+let g:templates_directory = ['~/.vim/templates',]
+
 
 " 快捷键设置
 let mapleader = "\<space>"
