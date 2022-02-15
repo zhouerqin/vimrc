@@ -7,6 +7,9 @@ set noswapfile
 set nobackup
 set nowritebackup
 
+set hlsearch
+set incsearch
+set expandtab
 set nu
 " Vim >=8.0 or Neovim >= 0.1.5
 if (has("termguicolors"))
