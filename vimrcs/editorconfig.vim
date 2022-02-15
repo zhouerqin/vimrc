@@ -16,7 +16,7 @@ insert_final_newline     = true
 indent_style = space
 indent_size  = 2
 
-[*.{yml,yaml,conf}]
+[*.yml]
 indent_style = space
 indent_size  = 2
 

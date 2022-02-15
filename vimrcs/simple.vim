@@ -11,11 +11,12 @@ set hlsearch
 set incsearch
 set expandtab
 set nu
+syntax enable
+
 " Vim >=8.0 or Neovim >= 0.1.5
 if (has("termguicolors"))
    set termguicolors
 endif
-syntax enable
 
 let g:airline_powerline_fonts=1
 autocmd! User GoyoEnter Limelight
@@ -32,7 +33,6 @@ let mapleader = "\<space>"
 xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
-
 " Activate FOCUS mode with F12
 nmap <F12> :Goyo<CR>
 
