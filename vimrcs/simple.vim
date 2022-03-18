@@ -18,6 +18,8 @@ if (has("termguicolors"))
    set termguicolors
 endif
 
+colorscheme base16-3024
+
 let g:airline_powerline_fonts=1
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
@@ -37,7 +39,5 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 " Activate FOCUS mode with F12
 nmap <F12> :Goyo<CR>
-
-colorscheme base16-3024
-
+nmap <F2> :set paste<CR>
 
