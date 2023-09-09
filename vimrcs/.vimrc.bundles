@@ -1,0 +1,23 @@
+call plug#begin('~/.vim/bundle')
+Plug 'editorconfig/editorconfig-vim'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'thinca/vim-quickrun'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'morhetz/gruvbox'
+call plug#end()
+
+
+" quickrun {{{
+    let g:quickrun_config = {
+    \   "_" : {
+    \       "outputter" : "message",
+    \   },
+    \}
+
+    let g:quickrun_no_default_key_mappings = 1
+    nmap <Leader>r <Plug>(quickrun)
+    map <F10> :QuickRun<CR>
+" }}}
+
+color gruvbox
