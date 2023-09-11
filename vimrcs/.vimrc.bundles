@@ -6,6 +6,7 @@ Plug 'thinca/vim-quickrun'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'morhetz/gruvbox'
+Plug 'ekalinin/Dockerfile.vim'
 call plug#end()
 
 
@@ -22,3 +23,9 @@ call plug#end()
 " }}}
 
 color gruvbox
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
