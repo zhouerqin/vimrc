@@ -72,7 +72,7 @@ set smarttab
 set shiftround
 
 " indent
-set autoindent smartindent shiftround
+set autoindent smartindent cindent shiftround
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4                " insert mode tab and backspace use 4 spaces
