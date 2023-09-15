@@ -7,6 +7,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'morhetz/gruvbox'
 Plug 'ekalinin/Dockerfile.vim'
+" 符号补全
+Plug 'Raimondi/delimitMate'
 call plug#end()
 
 
