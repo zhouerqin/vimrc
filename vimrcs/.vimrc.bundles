@@ -9,7 +9,13 @@ Plug 'morhetz/gruvbox'
 Plug 'ekalinin/Dockerfile.vim'
 " 符号补全
 Plug 'Raimondi/delimitMate'
+Plug 'dense-analysis/ale'
+Plug 'edkolev/tmuxline.vim'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()
+
+
+color gruvbox
 
 
 " quickrun {{{
@@ -24,10 +30,15 @@ call plug#end()
     map <F10> :QuickRun<CR>
 " }}}
 
-color gruvbox
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
+
+let g:syntastic_yaml_checkers = ['yamllint']
+
+let g:tmuxline_powerline_separators = 0
+
