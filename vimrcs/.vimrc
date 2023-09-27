@@ -250,5 +250,5 @@ cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
 " 2023-09-09
-hi IndentGuidesOdd  ctermbg=black
-hi IndentGuidesEven ctermbg=darkgrey
+"hi IndentGuidesOdd  ctermbg=black
+"hi IndentGuidesEven ctermbg=darkgrey
