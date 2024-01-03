@@ -48,3 +48,5 @@ let g:ale_virtualtext_cursor = 'disabled'
 
 autocmd FileType python nmap = :Autoformat<CR>
 autocmd FileType python vnoremap = :Autoformat<Cr>
+autocmd FileType sh nmap = :Autoformat<CR>
+autocmd FileType sh vnoremap = :Autoformat<Cr>
