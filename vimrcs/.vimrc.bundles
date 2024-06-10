@@ -46,7 +46,26 @@ let g:tmuxline_powerline_separators = 0
 
 let g:ale_virtualtext_cursor = 'disabled'
 
+
+" indent
+set autoindent smartindent cindent shiftround
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4                " insert mode tab and backspace use 4 spaces
+
+" => python
 autocmd FileType python nmap = :Autoformat<CR>
 autocmd FileType python vnoremap = :Autoformat<Cr>
+autocmd FileType python set tabstop=4 shiftwidth=4 expandtab ai
+
+" => shell script
 autocmd FileType sh nmap = :Autoformat<CR>
 autocmd FileType sh vnoremap = :Autoformat<Cr>
+autocmd FileType sh set tabstop=2 shiftwidth=2 expandtab ai
+
+" => markdown text
+autocmd BufRead,BufNew *.md,*.mkd,*.markdown  set filetype=markdown.mkd
+autocmd FileType markdown setlocal ts=2 sts=2 sw=2 expandtab
+
+" => yaml file
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab

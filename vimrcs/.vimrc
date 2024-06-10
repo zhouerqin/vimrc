@@ -71,12 +71,6 @@ set expandtab                   " expand tabs to spaces
 set smarttab
 set shiftround
 
-" indent
-set autoindent smartindent cindent shiftround
-set shiftwidth=4
-set tabstop=4
-set softtabstop=4                " insert mode tab and backspace use 4 spaces
-
 " NOT SUPPORT
 " fold
 set foldenable
@@ -142,9 +136,7 @@ set laststatus=2   " Always show the status line - use 2 lines for the status ba
 
 " ============================ specific file type ===========================
 
-autocmd FileType python set tabstop=4 shiftwidth=4 expandtab ai
 autocmd FileType ruby set tabstop=2 shiftwidth=2 softtabstop=2 expandtab ai
-autocmd BufRead,BufNew *.md,*.mkd,*.markdown  set filetype=markdown.mkd
 
 autocmd BufNewFile *.sh,*.py exec ":call AutoSetFileHead()"
 function! AutoSetFileHead()
