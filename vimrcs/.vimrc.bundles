@@ -14,6 +14,7 @@ Plug 'dense-analysis/ale'
 Plug 'edkolev/tmuxline.vim'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
+Plug 'aperezdc/vim-template'
 call plug#end()
 
 
@@ -46,6 +47,9 @@ let g:tmuxline_powerline_separators = 0
 
 let g:ale_virtualtext_cursor = 'disabled'
 
+let g:email = 'zhouerqin@qq.com'
+let g:username = 'zhouerqin'
+let g:templates_directory = ['~/.vim/templates']
 
 " indent
 set autoindent smartindent cindent shiftround
