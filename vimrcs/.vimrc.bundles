@@ -1,20 +1,18 @@
 call plug#begin('~/.vim/bundle')
+Plug 'Raimondi/delimitMate'
+Plug 'airblade/vim-gitgutter'
+Plug 'aperezdc/vim-template'
+Plug 'dense-analysis/ale'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'edkolev/tmuxline.vim'
+Plug 'ekalinin/Dockerfile.vim'
 Plug 'junegunn/vim-easy-align'
+Plug 'morhetz/gruvbox'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'thinca/vim-quickrun'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'morhetz/gruvbox'
-Plug 'ekalinin/Dockerfile.vim'
 Plug 'vim-autoformat/vim-autoformat'
-" 符号补全
-Plug 'Raimondi/delimitMate'
-Plug 'dense-analysis/ale'
-Plug 'edkolev/tmuxline.vim'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'airblade/vim-gitgutter'
-Plug 'aperezdc/vim-template'
 call plug#end()
 
 
