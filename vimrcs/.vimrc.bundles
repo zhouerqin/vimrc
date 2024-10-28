@@ -13,6 +13,7 @@ Plug 'thinca/vim-quickrun'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-autoformat/vim-autoformat'
+Plug 'preservim/nerdcommenter'
 call plug#end()
 
 
@@ -59,6 +60,11 @@ set softtabstop=4                " insert mode tab and backspace use 4 spaces
 autocmd FileType python nmap = :Autoformat<CR>
 autocmd FileType python vnoremap = :Autoformat<Cr>
 autocmd FileType python set tabstop=4 shiftwidth=4 expandtab ai
+
+" => go
+autocmd FileType go nmap = :Autoformat<CR>
+autocmd FileType go vnoremap = :Autoformat<Cr>
+autocmd FileType go set tabstop=4 shiftwidth=4 expandtab ai
 
 " => shell script
 autocmd FileType sh nmap = :Autoformat<CR>
