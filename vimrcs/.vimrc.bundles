@@ -80,3 +80,7 @@ autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " => Dockerfile
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+" => bat and ps1 file
+autocmd FileType dosbatch setlocal fenc=cp936 fencs=cp936 ff=dos 
+autocmd FileType ps1 setlocal fenc=cp936 fencs=cp936 ff=dos
