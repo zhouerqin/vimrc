@@ -1,228 +1,141 @@
-"==========================================
-" Author: zhouerqin
-" Email: zhouerqin@qq.com
-"==========================================
-
-" leader
-let mapleader = ','
-let g:mapleader = ','
-
-" syntax
-syntax on
-" install bundles
-if filereadable(expand("~/.vimrc.bundles"))
-  source ~/.vimrc.bundles
-endif
-
-" history : how many lines of history VIM has to remember
-set history=2000
-
-" filetype
-filetype on
-" Enable filetype plugins
-filetype plugin on
-filetype indent on
-
-
-" base
-set nocompatible                " don't bother with vi compatibility
-set autoread                    " reload files when changed on disk, i.e. via `git checkout`
-set shortmess=atI
-
-set magic                       " For regular expressions turn magic on
-set title                       " change the terminal's title
-set nobackup                    " do not keep a backup file
-
-set novisualbell                " turn off visual bell
-set noerrorbells                " don't beep
-set visualbell t_vb=            " turn off error beep/flash
-set t_vb=
-set tm=500
-
-
-" show location
-" set cursorcolumn
-" set cursorline
-
-
-" movement
-set scrolloff=7                 " keep 3 lines when scrolling
-
-
-" show
-set ruler                       " show the current row and column
-set number                      " show line numbers
-set nowrap
-set showcmd                     " display incomplete commands
-set showmode                    " display current modes
-set showmatch                   " jump to matches when entering parentheses
-set matchtime=2                 " tenths of a second to show the matching parenthesis
-
-
-" search
-set hlsearch                    " highlight searches
-set incsearch                   " do incremental searching, search as you type
-set ignorecase                  " ignore case when searching
-set smartcase                   " no ignorecase if Uppercase char present
-
-
-" tab
-set expandtab                   " expand tabs to spaces
-set smarttab
-set shiftround
-
-" NOT SUPPORT
-" fold
-set foldenable
-set foldmethod=indent
-set foldlevel=99
-let g:FoldMethod = 0
-map <leader>zz :call ToggleFold()<cr>
-fun! ToggleFold()
-    if g:FoldMethod == 0
-        exe "normal! zM"
-        let g:FoldMethod = 1
-    else
-        exe "normal! zR"
-        let g:FoldMethod = 0
-    endif
-endfun
-
-" encoding
+" ====== 基础设置 ======
+" 禁用兼容模式，启用现代Vim特性
+set nocompatible
+" 使用UTF-8编码
 set encoding=utf-8
-set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
-set termencoding=utf-8
-set ffs=unix,dos,mac
-set formatoptions+=m
-set formatoptions+=B
+" 启用文件类型检测
+filetype on
+" 启用文件类型缩进
+filetype indent on
+" 启用语法高亮
+syntax enable
+" 确保backspace能正常工作
+set backspace=indent,eol,start
+" 自动缩进
+set autoindent
+" 高亮匹配括号
+set showmatch
+" 特殊字符显示设置
+set listchars=tab:→\ ,trail:·
+" ====== Shell脚本配置 ======
+" Google Shell脚本规范要求：
+" - 使用2空格缩进
+" - 行宽限制80字符
+" - 使用空格替代Tab
+" - Shebang使用#!/bin/bash
 
-" select & complete
-set selection=inclusive
-set selectmode=mouse,key
+" 设置.sh文件类型
+autocmd BufNewFile,BufRead *.sh set filetype=sh
 
-set completeopt=longest,menu
-set wildmenu                           " show a navigable menu for tab completion"
-set wildmode=longest,list,full
-set wildignore=*.o,*~,*.pyc,*.class
+" Shell文件缩进和格式设置
+autocmd FileType sh setlocal tabstop=2
+autocmd FileType sh setlocal shiftwidth=2
+autocmd FileType sh setlocal softtabstop=2
+autocmd FileType sh setlocal expandtab
+autocmd FileType sh setlocal textwidth=80
+autocmd FileType sh setlocal formatoptions-=t
+autocmd FileType sh setlocal iskeyword+=@,-,_
+autocmd FileType sh setlocal commentstring=#\ %s
 
-" others
-set backspace=indent,eol,start  " make that backspace key work the way it should
-set whichwrap+=<,>,h,l
+" 自动添加Shebang
+autocmd BufNewFile *.sh call append(0, ['#!/bin/bash', ''])
 
-" if this not work ,make sure .viminfo is writable for you
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+" ====== 通用格式规范 ======
+" 自动缩进
+set autoindent
+" 高亮匹配括号
+set showmatch
+" 特殊字符显示设置
+set listchars=tab:→\ ,trail:·
+" Shell文件中显示特殊字符
+autocmd FileType sh set list
+
+" 保存时自动格式化
+" 删除行尾空格
+autocmd BufWritePre *.sh :%s/\s\+$//e
+" 转换Tab为空格
+autocmd BufWritePre *.sh :retab
+
+" ====== 语法高亮增强 ======
+" Shell脚本特殊语法高亮
+highlight link shShebang Comment
+highlight link shFunction Function
+highlight link shTestOpr Operator
+
+" ====== 其他语言兼容 ======
+" Windows批处理文件设置
+" 保留Tab字符，8空格宽度
+autocmd FileType dosbatch setlocal noexpandtab
+autocmd FileType dosbatch setlocal tabstop=8
+
+" PowerShell脚本设置
+" 使用空格缩进，2空格宽度
+autocmd FileType ps1 setlocal expandtab
+autocmd FileType ps1 setlocal tabstop=2
+
+" ====== YAML文件配置 ======
+" 设置.yaml文件类型
+autocmd BufNewFile,BufRead *.yaml,*.yml set filetype=yaml
+
+" YAML文件缩进和格式设置
+autocmd FileType yaml setlocal tabstop=2
+autocmd FileType yaml setlocal shiftwidth=2
+autocmd FileType yaml setlocal softtabstop=2
+autocmd FileType yaml setlocal expandtab
+autocmd FileType yaml setlocal textwidth=80
+autocmd FileType yaml setlocal commentstring=#\ %s
+
+" YAML文件中显示特殊字符
+autocmd FileType yaml set list
+
+" 保存时自动格式化
+" 删除行尾空格
+autocmd BufWritePre *.yaml,*.yml :%s/\s\+$//e
+" 转换Tab为空格
+autocmd BufWritePre *.yaml,*.yml :retab
+
+" ====== Python文件配置 ======
+
+" 设置.py文件类型
+autocmd BufNewFile,BufRead *.py set filetype=python
+
+" Python文件缩进和格式设置 (PEP8标准)
+autocmd FileType python setlocal tabstop=4
+autocmd FileType python setlocal shiftwidth=4
+autocmd FileType python setlocal softtabstop=4
+autocmd FileType python setlocal expandtab
+autocmd FileType python setlocal textwidth=79
+autocmd FileType python setlocal colorcolumn=80
+autocmd FileType python setlocal commentstring=#\ %s
+
+" 自动添加Shebang
+autocmd BufNewFile *.py call append(0, ['#!/usr/bin/env python3', '', ''])
+
+autocmd FileType python set list
+
+" ====== Python语法高亮增强 ======
+let python_highlight_all = 1
+let python_highlight_space_errors = 1
+highlight link pythonFunction Function
+highlight link pythonOperator Operator
+highlight link pythonString String
+
+" ====== Dockerfile配置 ======
+" 设置Dockerfile文件类型
+autocmd BufNewFile,BufRead Dockerfile,*.dockerfile set filetype=dockerfile
+
+" Dockerfile缩进和格式设置
+autocmd FileType dockerfile setlocal tabstop=2
+autocmd FileType dockerfile setlocal shiftwidth=2
+autocmd FileType dockerfile setlocal softtabstop=2
+autocmd FileType dockerfile setlocal expandtab
+autocmd FileType dockerfile setlocal textwidth=80
+autocmd FileType dockerfile setlocal commentstring=#\ %s
+
+autocmd FileType vim setlocal tabstop=4
+autocmd FileType vim setlocal shiftwidth=4
+autocmd FileType vim setlocal softtabstop=4
+
+if filereadable(expand("~/.vimrc.bundles"))
+	source ~/.vimrc.bundles
 endif
-
-" NOT SUPPORT
-" Enable basic mouse behavior such as resizing buffers.
-" set mouse=a
-
-
-" ============================ theme and status line ============================
-
-" theme
-set background=dark
-
-" set mark column color
-hi! link SignColumn   LineNr
-hi! link ShowMarksHLl DiffAdd
-hi! link ShowMarksHLu DiffChange
-
-" status line
-set statusline=%<%f\ %h%m%r%=%k[%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",BOM\":\"\")}]\ %-14.(%l,%c%V%)\ %P
-set laststatus=2   " Always show the status line - use 2 lines for the status bar
-
-
-" ============================ specific file type ===========================
-
-autocmd FileType ruby set tabstop=2 shiftwidth=2 softtabstop=2 expandtab ai
-
-autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
-fun! <SID>StripTrailingWhitespaces()
-    let l = line(".")
-    let c = col(".")
-    %s/\s\+$//e
-    call cursor(l, c)
-endfun
-
-" ============================ key map ============================
-
-nnoremap k gk
-nnoremap gk k
-nnoremap j gj
-nnoremap gj j
-
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
-
-nnoremap <F2> :set nu! nu?<CR>
-nnoremap <F3> :set list! list?<CR>
-nnoremap <F4> :set wrap! wrap?<CR>
-set pastetoggle=<F5>            "    when in insert mode, press <F5> to go to
-                                "    paste mode, where you can paste mass data
-                                "    that won't be autoindented
-au InsertLeave * set nopaste
-nnoremap <F6> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
-
-
-" Quickly close the current window
-nnoremap <leader>q :q<CR>
-" Quickly save the current file
-nnoremap <leader>w :w<CR>
-
-" select all
-map <Leader>sa ggVG"
-
-" remap U to <C-r> for easier redo
-nnoremap U <C-r>
-
-" Swap implementations of ` and ' jump to markers
-" By default, ' jumps to the marked line, ` jumps to the marked line and
-" column, so swap them
-nnoremap ' `
-nnoremap ` '
-
-" switch # *
-" nnoremap # *
-" nnoremap * #
-
-"Keep search pattern at the center of the screen."
-nnoremap <silent> n nzz
-nnoremap <silent> N Nzz
-nnoremap <silent> * *zz
-nnoremap <silent> # #zz
-nnoremap <silent> g* g*zz
-
-" remove highlight
-noremap <silent><leader>/ :nohls<CR>
-
-"Reselect visual block after indent/outdent.调整缩进后自动选中，方便再次操作
-vnoremap < <gv
-vnoremap > >gv
-
-" y$ -> Y Make Y behave like other capitals
-map Y y$
-
-"Map ; to : and save a million keystrokes
-" ex mode commands made easy 用于快速进入命令行
-nnoremap ; :
-
-" Shift+H goto head of the line, Shift+L goto end of the line
-nnoremap H ^
-nnoremap L $
-
-" save
-cmap w!! w !sudo tee >/dev/null %
-
-" command mode, ctrl-a to head， ctrl-e to tail
-cnoremap <C-j> <t_kd>
-cnoremap <C-k> <t_ku>
-cnoremap <C-a> <Home>
-cnoremap <C-e> <End>
-
-" 2023-09-09
-"hi IndentGuidesOdd  ctermbg=black
-"hi IndentGuidesEven ctermbg=darkgrey
