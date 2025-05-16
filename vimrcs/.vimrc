@@ -144,4 +144,5 @@ if filereadable(expand("~/.vimrc.bundles"))
 	source ~/.vimrc.bundles
 endif
 set modeline
+set modelines=5
 set hlsearch
