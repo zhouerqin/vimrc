@@ -32,10 +32,10 @@ autocmd FileType sh setlocal tabstop=2
 autocmd FileType sh setlocal shiftwidth=2
 autocmd FileType sh setlocal softtabstop=2
 autocmd FileType sh setlocal expandtab
-autocmd FileType sh setlocal textwidth=80
 autocmd FileType sh setlocal formatoptions-=t
 autocmd FileType sh setlocal iskeyword+=@,-,_
 autocmd FileType sh setlocal commentstring=#\ %s
+autocmd FileType sh setlocal colorcolumn=80
 
 " 自动添加Shebang
 autocmd BufNewFile *.sh call append(0, ['#!/bin/bash', ''])
@@ -82,8 +82,9 @@ autocmd FileType yaml setlocal tabstop=2
 autocmd FileType yaml setlocal shiftwidth=2
 autocmd FileType yaml setlocal softtabstop=2
 autocmd FileType yaml setlocal expandtab
-autocmd FileType yaml setlocal textwidth=80
+autocmd FileType yaml setlocal textwidth=0
 autocmd FileType yaml setlocal commentstring=#\ %s
+autocmd FileType yaml setlocal colorcolumn=80
 
 " YAML文件中显示特殊字符
 autocmd FileType yaml set list
@@ -104,7 +105,6 @@ autocmd FileType python setlocal tabstop=4
 autocmd FileType python setlocal shiftwidth=4
 autocmd FileType python setlocal softtabstop=4
 autocmd FileType python setlocal expandtab
-autocmd FileType python setlocal textwidth=79
 autocmd FileType python setlocal colorcolumn=80
 autocmd FileType python setlocal commentstring=#\ %s
 
@@ -129,13 +129,19 @@ autocmd FileType dockerfile setlocal tabstop=2
 autocmd FileType dockerfile setlocal shiftwidth=2
 autocmd FileType dockerfile setlocal softtabstop=2
 autocmd FileType dockerfile setlocal expandtab
-autocmd FileType dockerfile setlocal textwidth=80
 autocmd FileType dockerfile setlocal commentstring=#\ %s
 
 autocmd FileType vim setlocal tabstop=4
 autocmd FileType vim setlocal shiftwidth=4
 autocmd FileType vim setlocal softtabstop=4
 
+autocmd FileType nginx setlocal tabstop=4
+autocmd FileType nginx setlocal shiftwidth=4
+autocmd FileType nginx setlocal softtabstop=4
+autocmd FileType nginx setlocal expandtab
+
 if filereadable(expand("~/.vimrc.bundles"))
 	source ~/.vimrc.bundles
 endif
+set modeline
+set hlsearch

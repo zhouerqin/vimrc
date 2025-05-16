@@ -8,6 +8,9 @@ Plug 'thinca/vim-quickrun'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-autoformat/vim-autoformat'
+Plug 'ervandew/supertab'
+Plug 'stephpy/vim-yaml'
+Plug 'ayu-theme/ayu-vim'
 call plug#end()
 
 "autocmd BufWritePre *.py :Autoformat
@@ -16,15 +19,25 @@ let g:autoformat_verbosemode=1
 let g:formatdef_shfmt = '"shfmt -i 2 -ci -bn"'
 let g:formatdef_dockerfmt = '"dockerfmt"'
 let g:formatters_dockerfile = ['dockerfmt']
+let g:formatdef_yamlfmt = '"yamlfmt -in"'
+let g:formatters_yaml = ['yamlfmt']
+
+"autocmd FileType yaml let b:autoformat_autoindent=0
 
 autocmd BufWrite * :Autoformat
 
 let g:quickrun_config = {
 			\   "_" : {
-				\       "outputter" : "message",
-				\   },
-				\}
+			\       "outputter" : "message",
+			\   },
+			\}
 
 let g:quickrun_no_default_key_mappings = 1
 nmap <Leader>r <Plug>(quickrun)
 map <F5> :QuickRun<CR>
+
+set termguicolors     " enable true colors support
+"let ayucolor="light"  " for light version of theme
+"let ayucolor="mirage" " for mirage version of theme
+"let ayucolor="dark"   " for dark version of theme
+colorscheme ayu
