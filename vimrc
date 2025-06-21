@@ -140,8 +140,8 @@ autocmd FileType nginx setlocal shiftwidth=4
 autocmd FileType nginx setlocal softtabstop=4
 autocmd FileType nginx setlocal expandtab
 
-if filereadable(expand("~/.vimrc.bundles"))
-	source ~/.vimrc.bundles
+if filereadable(expand("~/.vim/vimrc.bundles"))
+	source ~/.vim/vimrc.bundles
 endif
 set modeline
 set modelines=5
