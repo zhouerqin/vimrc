@@ -1,3 +1,4 @@
+" vim: ts=4:sts=4:sw=4:et:ft=vim:
 " ====== 基础设置 ======
 " 禁用兼容模式，启用现代Vim特性
 set nocompatible
