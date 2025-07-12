@@ -147,3 +147,4 @@ endif
 set modeline
 set modelines=5
 set hlsearch
+let mapleader = " "
