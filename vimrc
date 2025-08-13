@@ -68,6 +68,7 @@ highlight link shTestOpr Operator
 " 保留Tab字符，8空格宽度
 autocmd FileType dosbatch setlocal noexpandtab
 autocmd FileType dosbatch setlocal tabstop=8
+autocmd FileType dosbatch setlocal fenc=gbk
 
 " PowerShell脚本设置
 " 使用空格缩进，2空格宽度
@@ -148,3 +149,4 @@ set modeline
 set modelines=5
 set hlsearch
 let mapleader = " "
+autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
