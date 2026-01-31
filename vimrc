@@ -74,7 +74,7 @@ autocmd FileType just setlocal softtabstop=2
 autocmd FileType just setlocal expandtab
 autocmd FileType just setlocal commentstring=#\ %s
 autocmd FileType just setlocal colorcolumn=80
-autocmd BufNewFile Justfile,.justfile,justfile call append(0, ['#!/usr/bin/env just', ''])
+autocmd BufNewFile Justfile,.justfile,justfile call append(0, ['# vim: ts=2:sts=2:sw=2:et:cc=80:', ''])
 
 " ====== 其他文件类型配置 ======
 autocmd FileType vim setlocal tabstop=4
