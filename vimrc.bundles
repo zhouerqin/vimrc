@@ -12,6 +12,8 @@ Plug 'vim-autoformat/vim-autoformat'
 Plug 'ervandew/supertab'
 Plug 'stephpy/vim-yaml'
 Plug 'ayu-theme/ayu-vim'
+Plug 'NoahTheDuke/vim-just'
+Plug 'tpope/vim-commentary'
 call plug#end()
 
 "autocmd BufWritePre *.py :Autoformat
