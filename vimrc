@@ -100,5 +100,35 @@ if filereadable(expand("~/.vim/vimrc.bundles"))
   source ~/.vim/vimrc.bundles
 endif
 
+" ====== coc.nvim 配置 =====
+let g:coc_global_extensions = ['coc-pyright', 'coc-json', 'coc-html', 'coc-css', 'coc-sh', 'coc-yaml']
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ has('nvim') ? '' : '<TAB>'
+inoremap <expr> <S-TAB> coc#pum#visible() ? coc#pum#prev(1) : '<S-TAB>'
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : '<CR>'
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gR <Plug>(coc-rename)
+nmap <silent> gr <Plug>(coc-references)
+
+" ====== fzf 配置 =====
+let g:fzf_action = {
+  \ 'open': 'tabedit',
+  \ 'edit': 'edit'
+\ }
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8 } }
+nmap <C-p> :Files<CR>
+nmap <Leader>fg :Rg<CR>
+nmap <Leader>fb :Buffers<CR>
+
+" ====== 保存时自动格式化 =====
+autocmd BufWritePost *.py,*.sh,*.yaml,*.yml,*.dockerfile,Justfile call Autoformat()
+
+" ====== airline 配置 =====
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline_theme = 'ayu'
+
 set modeline
 set modelines=5

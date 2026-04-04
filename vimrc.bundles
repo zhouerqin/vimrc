@@ -14,6 +14,9 @@ Plug 'stephpy/vim-yaml'
 Plug 'ayu-theme/ayu-vim'
 Plug 'NoahTheDuke/vim-just'
 Plug 'tpope/vim-commentary'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'junegunn/fzf', {'do': { -> fzf#install() }}
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 "autocmd BufWritePre *.py :Autoformat
@@ -39,7 +42,7 @@ let g:quickrun_no_default_key_mappings = 1
 nmap <Leader>r <Plug>(quickrun)
 map <F5> :QuickRun<CR>
 
-set termguicolors     " enable true colors support
+" set termguicolors     " enable true colors support
 "let ayucolor="light"  " for light version of theme
 "let ayucolor="mirage" " for mirage version of theme
 "let ayucolor="dark"   " for dark version of theme

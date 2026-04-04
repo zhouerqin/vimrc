@@ -1,98 +1,146 @@
 # Vim 开发环境配置
 
-这是一个专业的 Vim 配置方案，提供了完整的开发环境设置，包括插件管理、代码格式化、语法高亮等功能。
+面向全栈开发者的 Vim 配置方案，提供代码补全、文件导航、自动格式化等功能。
 
 ## 特性
 
-- 使用 vim-plug 作为插件管理器
-- 支持多种编程语言的语法高亮和格式化
-- 提供统一的代码风格配置
-- 包含常用开发工具和快捷键设置
+- **代码补全**：coc.nvim + 多语言语言服务器
+- **文件导航**：fzf 模糊搜索 + ripgrep 代码搜索
+- **自动格式化**：保存时自动格式化（Python/Shell/YAML/Docker）
+- **统一风格**：EditorConfig 跨编辑器统一
+- **状态栏**：airline 美化 + tabline
 
-## 系统要求
-
-- 操作系统：debian:12 或其他 Linux 发行版
-- Vim 8.0+
-
-## 安装步骤
-
-1. 克隆仓库到本地：
+## 快速开始
 
 ```bash
+# 1. 克隆配置
 git clone https://github.com/zhouerqin/vimrc.git ~/.vim
 cd ~/.vim
+
+# 2. 安装依赖（见下方"依赖"章节）
+
+# 3. 安装插件
+vim +PlugInstall +q
+
+# 4. 安装语言服务器（coc 扩展）
+vim +"CocInstall coc-pyright coc-json coc-html coc-css coc-sh coc-yaml" +q
 ```
 
-2. 安装 vim-plug 插件管理器：
+## 依赖
+
+### 系统工具
 
 ```bash
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# Debian/Ubuntu
+apt install fzf ripgrep nodejs npm
+
+# macOS
+brew install fzf ripgrep node
 ```
 
-3. 创建配置文件链接：
+### 格式化工具
 
 ```bash
-ln -s ~/.vim/vimrcs/.vimrc ~/.vimrc
+# Debian/Ubuntu
+apt install shfmt yamllint
+
+# pip
+pip3 install black yamlfmt
 ```
 
-4. 安装插件：
-
-打开 vim 并执行：
-```
-:PlugInstall
-```
-
-## 依赖工具
-
-### Shell 脚本开发环境
+### 可选工具
 
 ```bash
-apt install shfmt shellcheck
+# Docker 格式化
+go install github.com/cedrickring/dockerfmt@latest
+# 或
+pip3 install dockerfmt
 ```
 
-### Python 开发环境
+## 快捷键速查
 
+| 快捷键 | 功能 | 插件 |
+|--------|------|------|
+| `<Space>` | Leader 键 | - |
+| `<C-p>` | 文件模糊搜索 | fzf |
+| `<Leader>fg` | 代码搜索 | fzf |
+| `<Leader>fb` | Buffer 切换 | fzf |
+| `gd` | 跳转到定义 | coc.nvim |
+| `gR` | 重命名 | coc.nvim |
+| `gr` | 查找引用 | coc.nvim |
+| `<Leader>r` | 运行代码 | quickrun |
+| `<F5>` | 运行代码 | quickrun |
+| `gcc` | 注释/取消注释 | vim-commentary |
+| `\a` | 对齐代码 | vim-easy-align |
+
+### coc.nvim 补全
+
+| 快捷键 | 功能 |
+|--------|------|
+| `<Tab>` | 下一个补全项 |
+| `<S-Tab>` | 上一个补全项 |
+| `<Enter>` | 确认选择 |
+| `<C-n>/<C-p>` | 上下选择 |
+
+### 文件类型自动配置
+
+| 文件类型 | 缩进 | 行宽限制 |
+|----------|------|----------|
+| Python | 4 空格 | 80 |
+| Shell | 2 空格 | 80 |
+| YAML | 2 空格 | 80 |
+| Docker | 2 空格 | - |
+| Just | 2 空格 | 80 |
+| Vim/Nginx | 4 空格 | - |
+
+## 排错
+
+### 终端颜色异常
+
+如底部出现大片红色/杂色，注释掉 `vimrc.bundles` 中的：
+```vim
+" set termguicolors
+```
+
+### coc 补全不工作
+
+1. 检查语言服务器是否安装：
+```
+:CocList services
+```
+
+2. 手动安装：
+```
+:CocInstall coc-pyright
+```
+
+3. 查看错误日志：
+```
+:CocOpenLog
+```
+
+### fzf 不工作
+
+确保 fzf 已安装：
 ```bash
-pip3 install black
+which fzf
+# 如未安装
+apt install fzg
+# 或
+brew install fzf
 ```
 
 ## 目录结构
 
-- `autoload/`: 包含 vim-plug 插件管理器
-- `vimrcs/`: vim 配置文件
-  - `.vimrc`: 主配置文件
-  - `.vimrc.bundles`: 插件配置文件
-- `templates/`: 文件模板
-
-## 主要功能
-
-- 自动缩进和语法高亮
-- 文件类型检测
-- 代码格式化支持
-- 智能补全
-- Git 集成
-
-## 自定义配置
-
-你可以通过编辑 `~/.vimrc` 文件来自定义配置，主要设置包括：
-
-- 基础编辑器行为
-- 插件选项
-- 快捷键映射
-- 主题设置
-
-## 常用快捷键
-
-- `<Space>`: Leader 键
-- `:PlugInstall`: 安装插件
-- `:PlugUpdate`: 更新插件
-- `:PlugClean`: 清理未使用的插件
-
-## 贡献
-
-欢迎提交 Issue 和 Pull Request 来帮助改进这个项目。
+```
+~/.vim/
+├── autoload/      # vim-plug
+├── bundle/        # 插件目录
+├── vimrc          # 主配置
+├── vimrc.bundles  # 插件配置
+└── README.md      # 本文件
+```
 
 ## 许可证
 
-MIT License
+MIT
