@@ -1,4 +1,7 @@
 " vim: ts=4:sts=4:sw=4:et:ft=vim:
+" ====== 插件配置 ======
+
+" 插件声明
 call plug#begin('~/.vim/bundle')
 Plug 'airblade/vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'
@@ -19,8 +22,7 @@ Plug 'junegunn/fzf', {'do': { -> fzf#install() }}
 Plug 'junegunn/fzf.vim'
 call plug#end()
 
-"autocmd BufWritePre *.py :Autoformat
-"autocmd BufWritePre *.sh :Autoformat
+" ====== autoformat 配置 ======
 let g:autoformat_verbosemode=1
 let g:formatdef_shfmt = '"shfmt -i 2 -ci -bn"'
 let g:formatters_sh = ['shfmt']
@@ -29,10 +31,9 @@ let g:formatters_dockerfile = ['dockerfmt']
 let g:formatdef_yamlfmt = '"yamlfmt -in"'
 let g:formatters_yaml = ['yamlfmt']
 
-"autocmd FileType yaml let b:autoformat_autoindent=0
-
 autocmd FileType python,sh autocmd BufWritePre <buffer> Autoformat
 
+" ====== quickrun 配置 ======
 let g:quickrun_config = {
 \   "_" : {
 \       "outputter" : "message",
@@ -40,13 +41,8 @@ let g:quickrun_config = {
 \}
 
 let g:quickrun_no_default_key_mappings = 1
-nmap <Leader>r <Plug>(quickrun)
-map <F5> :QuickRun<CR>
 
-" set termguicolors     " enable true colors support
-"let ayucolor="light"  " for light version of theme
-"let ayucolor="mirage" " for mirage version of theme
-"let ayucolor="dark"   " for dark version of theme
+" ====== 主题配置 ======
 colorscheme ayu
 if &diff
     colorscheme desert
