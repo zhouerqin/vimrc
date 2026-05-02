@@ -23,6 +23,7 @@ call plug#end()
 "autocmd BufWritePre *.sh :Autoformat
 let g:autoformat_verbosemode=1
 let g:formatdef_shfmt = '"shfmt -i 2 -ci -bn"'
+let g:formatters_sh = ['shfmt']
 let g:formatdef_dockerfmt = '"dockerfmt"'
 let g:formatters_dockerfile = ['dockerfmt']
 let g:formatdef_yamlfmt = '"yamlfmt -in"'

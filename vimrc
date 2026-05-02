@@ -123,7 +123,7 @@ nmap <Leader>fg :Rg<CR>
 nmap <Leader>fb :Buffers<CR>
 
 " ====== 保存时自动格式化 =====
-autocmd BufWritePost *.py,*.sh,*.yaml,*.yml,*.dockerfile,Justfile call Autoformat()
+autocmd BufWritePost *.py,*.sh,*.yaml,*.yml,*.dockerfile,Justfile Autoformat
 
 " ====== airline 配置 =====
 let g:airline#extensions#tabline#enabled = 1
