@@ -3,6 +3,9 @@
 
 let g:coc_global_extensions = ['coc-pyright', 'coc-json', 'coc-html', 'coc-css', 'coc-sh', 'coc-yaml']
 
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
 inoremap <silent><expr> <TAB>
       \ coc#pum#visible() ? coc#pum#next(1) :
       \ has('nvim') ? '' : '<TAB>'

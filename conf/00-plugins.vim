@@ -31,7 +31,7 @@ let g:formatters_dockerfile = ['dockerfmt']
 let g:formatdef_yamlfmt = '"yamlfmt -in"'
 let g:formatters_yaml = ['yamlfmt']
 
-autocmd FileType python,sh autocmd BufWritePre <buffer> Autoformat
+" autocmd FileType python,sh autocmd BufWritePre <buffer> Autoformat
 
 " ====== quickrun 配置 ======
 let g:quickrun_config = {

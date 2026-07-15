@@ -6,7 +6,7 @@ filetype on
 filetype indent on
 syntax enable
 set backspace=indent,eol,start
-set autoindent
+" set autoindent
 set showmatch
 set listchars=tab:→\ ,trail:·
 set hlsearch
@@ -15,3 +15,4 @@ set iskeyword+=-
 set colorcolumn=+1
 set modeline
 set modelines=5
+set signcolumn=yes
