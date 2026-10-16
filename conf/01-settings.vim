@@ -8,7 +8,7 @@ syntax enable
 set backspace=indent,eol,start
 " set autoindent
 set showmatch
-set listchars=tab:→\ ,trail:·
+set listchars=tab:→\ ,extends:›,precedes:‹
 set hlsearch
 let mapleader = " "
 set iskeyword+=-
@@ -16,3 +16,17 @@ set colorcolumn=+1
 set modeline
 set modelines=5
 set signcolumn=yes
+
+" 视觉增强
+set number
+set relativenumber
+set cursorline
+set termguicolors
+set t_ut=
+set scrolloff=8
+set sidescrolloff=8
+set splitright
+set splitbelow
+set showtabline=2
+set background=dark
+set list

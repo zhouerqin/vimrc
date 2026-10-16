@@ -3,4 +3,6 @@
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline_theme = 'ayu'
+let g:airline#extensions#tabline#show_tab_nr = 1
+let g:airline_theme = 'catppuccin'
+let g:airline_powerline_fonts = 1

@@ -7,19 +7,22 @@ Plug 'airblade/vim-gitgutter'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'edkolev/tmuxline.vim'
 Plug 'junegunn/vim-easy-align'
-Plug 'nathanaelkane/vim-indent-guides'
+Plug 'Yggdroot/indentLine'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'RRethy/vim-illuminate'
 Plug 'thinca/vim-quickrun'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-autoformat/vim-autoformat'
 Plug 'ervandew/supertab'
 Plug 'stephpy/vim-yaml'
-Plug 'ayu-theme/ayu-vim'
+Plug 'catppuccin/vim', {'as': 'catppuccin'}
 Plug 'NoahTheDuke/vim-just'
 Plug 'tpope/vim-commentary'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', {'do': { -> fzf#install() }}
 Plug 'junegunn/fzf.vim'
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 " ====== autoformat 配置 ======
@@ -43,7 +46,8 @@ let g:quickrun_config = {
 let g:quickrun_no_default_key_mappings = 1
 
 " ====== 主题配置 ======
-colorscheme ayu
+let g:catppuccin_flavour = "mocha"
+colorscheme catppuccin
 if &diff
     colorscheme desert
 endif

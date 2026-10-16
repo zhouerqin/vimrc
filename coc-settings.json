@@ -1,3 +1,25 @@
 {
-  "diagnostic.virtualText": false
+  "diagnostic.virtualText": false,
+  "diagnostic.errorSign": "✘",
+  "diagnostic.warningSign": "▲",
+  "diagnostic.infoSign": "ℹ",
+  "diagnostic.hintSign": "•",
+  "diagnostic.floatConfig": {
+    "border": true,
+    "rounded": true
+  },
+  "signature.floatConfig": {
+    "border": true,
+    "rounded": true
+  },
+  "hover.floatConfig": {
+    "border": true,
+    "rounded": true
+  },
+  "suggest.floatConfig": {
+    "border": true,
+    "rounded": true
+  },
+  "suggest.noselect": false,
+  "suggest.enablePreselect": true
 }
