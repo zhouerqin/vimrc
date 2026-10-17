@@ -13,3 +13,9 @@ highlight ExtraWhitespace ctermbg=52 guibg=#5f1f1f
 " SignColumn 与背景一致更干净
 highlight clear SignColumn
 highlight SignColumn ctermfg=240 ctermbg=NONE guifg=#45475a guibg=NONE
+
+" 分隔符: 默认的 '|' 在深色主题下呈亮色虚线, 改为暗灰实线
+" WinSeparator 为 Vim 9 高亮组, VertSplit 兼容旧版本
+set fillchars=vert:│,fold:·
+highlight WinSeparator ctermfg=238 ctermbg=NONE guifg=#3a3a3a guibg=NONE
+highlight VertSplit ctermfg=238 ctermbg=NONE guifg=#3a3a3a guibg=NONE
