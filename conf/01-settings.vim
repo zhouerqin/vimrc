@@ -12,7 +12,6 @@ set listchars=tab:→\ ,extends:›,precedes:‹
 set hlsearch
 let mapleader = " "
 set iskeyword+=-
-set colorcolumn=+1
 set modeline
 set modelines=5
 set signcolumn=yes

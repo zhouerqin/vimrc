@@ -25,6 +25,13 @@ Plug 'junegunn/fzf.vim'
 Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
+" ====== editorconfig 配置 ======
+" 关闭 max_line_length 的列指示。默认 'line' 会把 max_line_length 追加进
+" 'colorcolumn'，在每一屏行高上画出一条全高竖线(屏幕列 86/87)，破坏简洁性。
+" 对齐 LazyVim 的做法: 不画列指示, 定位感交给 cursorline(见 conf/01)。
+" 只影响视觉; textwidth 的自动换行仍由 .editorconfig 的 max_line_length 决定。
+let g:EditorConfig_max_line_indicator = 'none'
+
 " ====== autoformat 配置 ======
 let g:autoformat_verbosemode=1
 let g:formatdef_shfmt = '"shfmt -i 2 -ci -bn"'
