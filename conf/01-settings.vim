@@ -21,12 +21,10 @@ set signcolumn=yes
 set number
 set relativenumber
 set cursorline
-set termguicolors
 set t_ut=
 set scrolloff=8
 set sidescrolloff=8
 set splitright
 set splitbelow
 set showtabline=2
-set background=dark
 set list

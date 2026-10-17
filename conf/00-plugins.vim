@@ -47,6 +47,14 @@ let g:quickrun_no_default_key_mappings = 1
 
 " ====== 主题配置 ======
 let g:catppuccin_flavour = "mocha"
+
+" 背景与颜色模式必须在 colorscheme 之前确定:
+" 1) 否则会先按默认 light 加载 latte, 再被 background=dark 触发二次重载成 mocha
+" 2) 颜色模式(真彩/256色)也需在此确定, 否则主题按错误的模式加载
+set background=dark
+" 使用终端 256 色而非真彩: 真彩下 catppuccin 的分层背景会出现黑块(滚动/删除后更明显)
+set notermguicolors
+
 colorscheme catppuccin
 if &diff
     colorscheme desert
