@@ -79,6 +79,15 @@ pip3 install dockerfmt
 | `gcc` | 注释/取消注释 | vim-commentary |
 | `\a` | 对齐代码 | vim-easy-align |
 
+### vimdiff
+
+| 快捷键 | 功能 |
+|--------|------|
+| `]c` / `[c` | 跳到下一个 / 上一个改动块 |
+| `do` / `dp` | 取用 / 放入对方窗口的改动 |
+| `<Leader>du` | 刷新 diff 计算 (`:diffupdate`) |
+| `<Leader>dc` | 关闭当前窗口 diff (`:diffoff`) |
+
 ### coc.nvim 补全
 
 | 快捷键 | 功能 |
@@ -153,7 +162,8 @@ brew install fzf
 │   ├── 06-airline.vim      # 状态栏
 │   ├── 07-format.vim       # 自动格式化
 │   ├── 08-ui.vim           # UI 增强
-│   └── 09-theme-tweaks.vim # 主题高亮微调
+│   ├── 09-theme-tweaks.vim # 主题高亮微调
+│   └── 10-diff.vim         # vimdiff 算法与快捷键
 ├── vimrc          # 主配置入口
 └── README.md      # 本文件
 ```

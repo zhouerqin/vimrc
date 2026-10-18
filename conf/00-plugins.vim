@@ -62,6 +62,3 @@ set background=dark
 set notermguicolors
 
 colorscheme catppuccin
-if &diff
-    colorscheme desert
-endif
